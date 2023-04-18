@@ -17,5 +17,5 @@ const Columna = database.define("Columna",{
         type:DataTypes.ARRAY(DataTypes.STRING)
     }
         
-})
+},{timestamps:false})
 module.exports={Columna}

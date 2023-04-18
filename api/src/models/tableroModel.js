@@ -20,7 +20,7 @@ portada_url:{
 type:DataTypes.STRING
 }
 
-})
+},{timestamps:false})
 
 
 module.exports={Tablero}

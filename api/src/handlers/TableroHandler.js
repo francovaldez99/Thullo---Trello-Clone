@@ -1,4 +1,4 @@
-const {CreateTableroController,GetTableroController} = require("../controllers/tableroController")
+const {CreateTableroController,GetTableroController,updateColumnOrderController} = require("../controllers/tableroController")
 
 
 
@@ -27,7 +27,25 @@ return res.status(200).json(result)
 }
 }
 
+
+const updateColumnOrderHandler =async (req,res)=>{
+const {idTablero} = req.params;
+const {Column_order} =req.body;
+if(!idTablero) return res.status(400).send("falta el id del tablero rey")
+if(!Column_order || !Column_order.length) return res.status(400).send("falta el array que sera el nuevo orden de las columnas")
+try {
+    const result = await updateColumnOrderController(Column_order,idTablero)
+    res.status(200).json(result)
+
+} catch (error) {
+    return res.status(400).json(error.message)
+}
+}
+
+
+
 module.exports = {
     CreateTableroHandler,
-    getTableroHandler
+    getTableroHandler,
+    updateColumnOrderHandler
 }

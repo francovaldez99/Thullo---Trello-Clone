@@ -23,6 +23,7 @@ const Card  = database.define("Card",{
    etiqueta:{
     type : DataTypes.STRING
    }
-})
+},
+{timestamps:false})
 
 module.exports ={Card}
