@@ -21,13 +21,20 @@ return createColumnd
 
 }
 
-
-
+const updateCardOrderController = async(newArr , idColumna)=>{
+const columna =await Columna.findByPk(idColumna)
+await columna.update({
+    card_order:newArr
+})
+await columna.reload()
+return columna
+}
 
 
 
 
 
 module.exports={
-    CreateColumnController
+    CreateColumnController,
+    updateCardOrderController
 }

@@ -1,5 +1,6 @@
 const {
-    CreateColumnController
+    CreateColumnController,
+    updateCardOrderController
 }= require("../controllers/columnController")
 
 
@@ -18,9 +19,22 @@ const columnCreateHandler = async (req , res )=>{
 
 }
 
-
+const updateCardOrderHandler = async(req , res )=> {
+    const {idColumna} = req.params;
+    const { array }=req.body;
+    if(!idColumna) return res.status(400).send("ingrese id por params")
+    if(!array.length) return res.status(400).send("ingrese el array")
+    
+    try {
+        const result = await updateCardOrderController(array,idColumna)
+        res.status(200).json(result)
+    } catch (error) {
+     return res.status(400).send(error.message)   
+    }
+}
 
 
 module.exports = {
-    columnCreateHandler
+    columnCreateHandler,
+    updateCardOrderHandler
 }

@@ -15,16 +15,16 @@ countriesRouter.get("/:id", countryidhandler);
 
 const {
     columnCreateHandler,
+    updateCardOrderHandler
     
 }= require("../handlers/columnsHandlers")
 const {Router} = require("express")
 const columnRouter = Router()
 
 
-columnRouter.get("/",(req,res)=>{
-
-})
 columnRouter.post("/:idTablero",columnCreateHandler)
+
+columnRouter.put("/update-card-order/:idColumna",updateCardOrderHandler)
 
 
 

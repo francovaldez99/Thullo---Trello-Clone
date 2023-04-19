@@ -26,27 +26,29 @@ const initialState = {
     'task-5': { id: 'task-5', content: 'Task 5' },
   },
   columnOrder: ['column-1', 'column-2', 'column-3'],
+  allTableros:[],
+  tablero : {}
 }
 
 export const tableroSlice = createSlice({
   name: "tablero",
   initialState,
   reducers: {
-    updateColumnOrder(state, action) {
-      state.columnOrder = action.payload;
+
+    
+    getAllTableros:(state , action )=>{
+      state.allTableros = action.payload;
+    }
+
+    ,getTableroById:( state ,action)=>{
+        state.tablero = action.payload
     },
-    updateTaskIds: (state, action) => {
-      const { columnId, taskIds } = action.payload;
-      state.columns[columnId].taskIds = taskIds;
-    },
-    updateColumnAndTaskIds: (state, action) => {
-      const { start, finish } = action.payload;
-      state.columns[start.id] = start;
-      state.columns[finish.id] = finish;
-    },
+   
+    
+
   }
 });
 
-export const { updateColumnOrder, updateTaskIds, updateColumnAndTaskIds } = tableroSlice.actions;
+export const {getTableroById, getAllTableros } = tableroSlice.actions;
 
 export default tableroSlice.reducer;

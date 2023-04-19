@@ -12,7 +12,7 @@ TableroRouter.get("/:idTablero",getTableroHandler)
 
 TableroRouter.post("/",CreateTableroHandler)
 
-TableroRouter.put("/updateorder/:idTablero",updateColumnOrderHandler)
+TableroRouter.put("/update-column-order/:idTablero",updateColumnOrderHandler)
 
 module.exports = {
     TableroRouter
